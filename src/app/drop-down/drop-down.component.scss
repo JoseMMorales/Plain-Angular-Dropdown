@@ -1,0 +1,73 @@
+$background-color: rgb(228, 222, 222);
+$border-color: #1976d2;
+$color: #000;
+$colorCursor: #fff;
+
+%colorCursor {
+  color: $colorCursor;
+  cursor: pointer;
+}
+
+.dropdown-collection {
+  width: 115px;
+  position: relative;
+  background-color: $background-color;
+
+  .dropdown-button {
+    border: none;
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-top: 4px solid $border-color;
+    padding: 10px;
+    color: $color;
+    width: 100%;
+    cursor: pointer;
+    outline: none;
+
+    &:hover span:nth-child(2) {
+      @extend %colorCursor;
+    }
+
+    img {
+      transition: transform 0.3s linear;
+
+      &.dropdown-open {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  .dropdown-list {
+    background: $background-color;
+    list-style: none;
+    position: absolute;
+    left: 0;
+    padding: 0;
+    right: 0;
+    margin-top: 5px;
+    transition: all 1s ease;
+    opacity: 0;
+    z-index: -1;
+
+    li {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 6px 0;
+      color: $color;
+      border-bottom: 1px solid $colorCursor;
+      cursor: pointer;
+    }
+
+    li:hover span:last-child {
+      @extend %colorCursor;
+    }
+  }
+
+  .dropdown-open {
+    display: block;
+    opacity: 1;
+  }
+}

@@ -1,0 +1,32 @@
+<div class="dropdown-collection" #dropdown>
+  <button
+    class="dropdown-button"
+    aria-haspopup="listbox"
+    (click)="toggleDropdown()"
+  >
+    <span class="dropdown-value">{{ currentValue }}</span>
+    <img
+      src="/assets/select-arrow.svg"
+      alt="dropdown-arrow"
+      [ngClass]="{ 'dropdown-open': dropdownOpen$ | async }"
+    />
+  </button>
+  <ul
+    class="dropdown-list"
+    role="listbox"
+    aria-expanded="false"
+    [ngClass]="{ 'dropdown-open': dropdownOpen$ | async }"
+  >
+    <li
+      *ngFor="let option of options"
+      [ngClass]="{ selected: currentValue }"
+      tabindex="0"
+      (click)="select(option)"
+      role="option"
+    >
+      <span>
+        {{ option }}
+      </span>
+    </li>
+  </ul>
+</div>
