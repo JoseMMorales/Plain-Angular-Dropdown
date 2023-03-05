@@ -49,6 +49,13 @@ p {
   align-items: center;
 }
 
+svg#rocket {
+  width: 80px;
+  position: absolute;
+  left: -10px;
+  top: -24px;
+}
+
 a,
 a:visited,
 a:hover {
@@ -58,4 +65,12 @@ a:hover {
 
 a:hover {
   color: #125699;
+}
+
+svg#clouds {
+  position: fixed;
+  bottom: -160px;
+  left: -230px;
+  z-index: -10;
+  width: 1920px;
 }
